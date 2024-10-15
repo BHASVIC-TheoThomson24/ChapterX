@@ -2,28 +2,36 @@
 #include<string.h>
 
 char stack[10], top=0, string[10];
-int stringlength=0;
+int stringlength;
 void printstack();
-void add(int input);
+void add(char input);
 void pop();
+char cast(int input);
 
 int main(void) {
     printf("Please enter a string to convert: \n");
-    scanf("%s",&string);
-    for (int i=0;i<9;i++) {
+    do {
+        scanf("%s",&string);
+        stringlength=strlen(string);
+        if(stringlength<0 || stringlength>8) {
+            printf("String must be between 1 and 8 letters, Please try again : \n");
+        }
+    }
+    while(stringlength<0 || stringlength>8);
+    for (int i=0;i<stringlength;i++) {
         printf("%c",string[i]);
     }
-    stringlength=strlen(string);
-add(string[5]);
+    for(int i=stringlength;i>=0;i--) {
+        add(string[i]);
+    }
+add(cast(stringlength));
 
 
-
-    add(stringlength);
     printstack();
     return 0;
 }
 
-void add(int input) {
+void add(char input) {
     if(top==10) {
         printf("STACK OVERFLOW ERROR! \n");
     }
@@ -46,7 +54,35 @@ void pop() {
 
 void printstack() {
     for (int i=0; i<top;i++) {
-        printf("%d |",stack[i]);
+        printf("%c |",stack[i]);
     }
     printf("\n\n");
+}
+
+char cast(int input) {
+char output='a';
+    switch(input) {
+        case 0:output='0';
+        break;
+        case 1:output='1';
+        break;
+        case 2:output='2';
+        break;
+        case 3:output='3';
+        break;
+        case 4:output='4';
+        break;
+        case 5:output='5';
+        break;
+        case 6:output='6';
+        break;
+        case 7:output='7';
+        break;
+        case 8:output='8';
+        break;
+        case 9:output='9';
+        default:printf("Error casting integer to char");
+        break;
+    }
+    return output;
 }
