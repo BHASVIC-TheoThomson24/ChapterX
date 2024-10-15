@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files (x86)\JetBrains\CLion 2024.1.4\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\theo.thomson24\Downloads\Chapter-X-datastructures -BC:\Users\theo.thomson24\Downloads\Chapter-X-datastructures\cmake-build-debug
+  command = "C:\Program Files (x86)\JetBrains\CLion 2024.1.4\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\theo.thomson24\Downloads\ChapterX -BC:\Users\theo.thomson24\Downloads\ChapterX\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = C:\PROGRA~2\JETBRA~1\CLION2~1.4\bin\ninja\win\x64\ninja.exe $FILE_ARG -t clean $TARGETS
+  command = "C:\Program Files (x86)\JetBrains\CLion 2024.1.4\bin\ninja\win\x64\ninja.exe" $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -59,6 +59,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = C:\PROGRA~2\JETBRA~1\CLION2~1.4\bin\ninja\win\x64\ninja.exe -t targets
+  command = "C:\Program Files (x86)\JetBrains\CLion 2024.1.4\bin\ninja\win\x64\ninja.exe" -t targets
   description = All primary targets available:
 
